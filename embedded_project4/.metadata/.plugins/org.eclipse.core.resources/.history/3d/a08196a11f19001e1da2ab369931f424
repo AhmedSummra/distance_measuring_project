@@ -1,0 +1,28 @@
+/*
+ * ultrasonic.h
+ *
+ *  Created on: Jul 3, 2023
+ *      Author: ahmed
+ */
+
+#ifndef ULTRASONIC_H_
+#define ULTRASONIC_H_
+
+
+
+#endif /* ULTRASONIC_H_ */
+
+#include"std_types.h"
+#include"icu.h"
+#include"PWM.h"
+
+
+
+
+
+/*--------------------------------------------FINCTIONS------------------------------------------------------------------*/
+
+void Ultrasonic_init(void);
+
+void Ultrasonic_trigger(void);
+

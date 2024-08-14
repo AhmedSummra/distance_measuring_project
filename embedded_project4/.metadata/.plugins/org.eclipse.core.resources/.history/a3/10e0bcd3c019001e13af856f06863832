@@ -1,0 +1,64 @@
+/*
+ * ultrasonic.c
+ *
+ *  Created on: Jul 3, 2023
+ *      Author: ahmed
+ */
+
+#include"ultrasonic.h"
+#include"avr/io.h"
+#include"icu.h"
+#include"util/delay.h"
+/*--------------------------------------------------GLOBAL VARIABLES----------------------------------------------------*/
+
+uint8 time_width,edge_count=0;
+
+void Ultrasonic_edgeProcessing(void){
+edge_count++;
+if(edge_count==1){
+ICU_clearTimerValue();
+ICU_setEdgeDetectionType(FALLING);
+}
+else if(edge_count==2){
+time_width =ICU_getInputCaptureValue();
+ICU_setEdgeDetectionType(RAISING);
+edge_count=0;
+}
+}
+
+void Ultrasonic_init(void){
+DDRB|=(1<<PB5);
+DDRD&=~(1<<PD6);
+ICU_setCallBack(Ultrasonic_edgeProcessing);
+}
+
+void Ultrasonic_trigger(void){
+	PORTB|=(1<<PB5);
+	_delay_us(12);
+	PORTB&=~(1<<PB5);
+}
+
+uint16 Ultrasonic_readDistance(void){
+	uint8 distance;
+	Ultrasonic_trigger();
+
+ if(edge_count==2){
+	distance =0.017*time_width;
+	return distance;
+ }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

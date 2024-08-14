@@ -1,0 +1,34 @@
+/*
+ * mini_project4.c
+ *
+ *  Created on: Jul 2, 2023
+ *      Author: ahmed
+ */
+#include"gpio.h"
+#include"icu.h"
+#include"lcd.h"
+#include"avr/io.h"
+
+
+int main(void){
+	ICU_ConfigType ICU_init_s,*ICU_init_ptr;
+	ICU_init_ptr= &ICU_init_s;
+	ICU_init_ptr->clock =F_CPU_8;
+	ICU_init_ptr->edge =RAISING;
+ICU_init(ICU_init_ptr);
+LCD_init();
+Ultrasonic_init();
+LCD_moveCursor(0,0);
+SREG|=(1<<7);
+	while(1){
+LCD_displayString("distance = ");
+
+
+
+	}
+	return 0;
+}
+
+
+
+

@@ -1,0 +1,25 @@
+/*
+ * ultrasonic.c
+ *
+ *  Created on: Jul 3, 2023
+ *      Author: ahmed
+ */
+
+#include"ultrasonic.h"
+#include"avr/io.h"
+#include"icu.h"
+
+void ICU_callback(void){
+ICU_clearTimerValue();
+ICU_setEdgeDetectionType(FALLING);
+
+}
+
+void Ultrasonic_init(void){
+DDRB|=(1<<PB5);
+DDRD&=~(1<<PD6);
+void ICU_setCallBack(ICU_callback);
+}
+
+
+

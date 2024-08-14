@@ -1,0 +1,17 @@
+/*
+ * mini_project4.c
+ *
+ *  Created on: Jul 2, 2023
+ *      Author: ahmed
+ */
+#include"gpio.h"
+#include"icu.h"
+#include"lcd.h"
+
+
+struct ICU_ConfigType ICU_init,* icu_ptr;
+icu_ptr = &ICU_init;
+
+
+
+

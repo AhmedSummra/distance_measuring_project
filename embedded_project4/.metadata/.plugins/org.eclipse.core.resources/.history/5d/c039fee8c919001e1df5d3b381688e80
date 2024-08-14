@@ -1,0 +1,31 @@
+/*
+ * ultrasonic.h
+ *
+ *  Created on: Jul 3, 2023
+ *      Author: ahmed
+ */
+
+#ifndef ULTRASONIC_H_
+#define ULTRASONIC_H_
+
+
+
+#endif /* ULTRASONIC_H_ */
+
+#include"std_types.h"
+#include"icu.h"
+
+
+
+extern uint16 time_width;
+
+
+/*--------------------------------------------FINCTIONS------------------------------------------------------------------*/
+
+void Ultrasonic_init(void);
+
+void Ultrasonic_trigger(void);
+
+uint16 Ultrasonic_readDistance(void);
+
+void Ultrasonic_edgeProcessing(void);
